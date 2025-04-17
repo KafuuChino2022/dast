@@ -1,0 +1,24 @@
+﻿<Button x:Class="dast.SuperButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:dast"
+             mc:Ignorable="d">
+    <Button.Template>
+        <ControlTemplate TargetType="Button">
+            <Grid ClipToBounds="True" Background="{TemplateBinding Background}" MouseLeftButtonDown="Click_SuperButton">
+                <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                    <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}" Margin="{TemplateBinding Margin}"/>
+                </Border>
+                <Path Fill="Black" Name="RoundPath">
+                    <Path.Data>
+                        <EllipseGeometry x:Name="RoundEllipse" RadiusX="0" RadiusY="{Binding RelativeSource={RelativeSource Mode=Self},Path=RadiusX}">
+                            
+                        </EllipseGeometry>
+                    </Path.Data>
+                </Path>
+            </Grid>
+        </ControlTemplate>
+    </Button.Template>
+</Button>
