@@ -13,51 +13,6 @@
         Height="450" MinHeight="450" MaxHeight="450"
         Width="800" MinWidth="800" MaxWidth="800">
     <Grid>
-
-        <Grid.Resources>
-            <Style x:Key="Title_Button" TargetType="{x:Type Button}">
-                <Setter Property="Width" Value="30"/>
-                <Setter Property="Height" Value="30"/>
-                <Setter Property="BorderBrush" Value="Transparent"/>
-                <Setter Property="Background" Value="#3282F6"/>
-                <Setter Property="FontFamily" Value="YouYuan"/>
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate>
-                            <Grid>
-                                <TextBlock x:Name="Button_Content" Text="{TemplateBinding Button.Content}" TextAlignment="Center" VerticalAlignment="Center" FontSize="{TemplateBinding Button.FontSize}" FontFamily="{TemplateBinding Button.FontFamily}" Foreground="{TemplateBinding Button.Foreground}"/>
-                                <Rectangle RadiusX="10" RadiusY="10" Opacity="0.1">
-                                    <Rectangle.Fill>
-                                        <SolidColorBrush x:Name="Title_Button_Brush" Color="#3282F6"/>
-                                    </Rectangle.Fill>
-                                    <Rectangle.Triggers>
-                                        <EventTrigger RoutedEvent="MouseEnter">
-                                            <EventTrigger.Actions>
-                                                <BeginStoryboard>
-                                                    <Storyboard>
-                                                        <ColorAnimation Storyboard.TargetName="Title_Button_Brush" Storyboard.TargetProperty="Color" To="White" Duration="0:0:0.1"/>
-                                                    </Storyboard>
-                                                </BeginStoryboard>
-                                            </EventTrigger.Actions>
-                                        </EventTrigger>
-                                        <EventTrigger RoutedEvent="MouseLeave">
-                                            <EventTrigger.Actions>
-                                                <BeginStoryboard>
-                                                    <Storyboard>
-                                                        <ColorAnimation Storyboard.TargetName="Title_Button_Brush" Storyboard.TargetProperty="Color" To="#3282F6" Duration="0:0:0.1"/>
-                                                    </Storyboard>
-                                                </BeginStoryboard>
-                                            </EventTrigger.Actions>
-                                        </EventTrigger>
-                                    </Rectangle.Triggers>
-                                </Rectangle>
-                            </Grid>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-        </Grid.Resources>
-        
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition/>
@@ -79,9 +34,9 @@
                 <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="40"/>
             </Grid.ColumnDefinitions>
-            <Button Style="{StaticResource Title_Button}" Width="30" Height="30" Content="—" Foreground="White" Grid.Column="2" FontSize="12" FontFamily="YouYuan" Click="Minimize_Click"/>
-            <Button Style="{StaticResource Title_Button}" Width="30" Height="30" Content="□" Foreground="#D4D4D4" Grid.Column="3" FontFamily="YouYuan" FontSize="12" Click="Maximize_Click" IsEnabled="False"/>
-            <Button Style="{StaticResource Title_Button}" Width="30" Height="30" Content="×" Foreground="White" Grid.Column="4" FontFamily="YouYuan" FontSize="20" Click="Close_Click"/>
+            <local:TitleButton Width="30" Height="30" Content="—" Foreground="White" Grid.Column="2" FontSize="12" FontFamily="YouYuan" Click="Minimize_Click" FontWeight="Bold"/>
+            <local:TitleButton Width="30" Height="30" Content="□" Foreground="#D4D4D4" Grid.Column="3" FontFamily="YouYuan" FontSize="12" Click="Maximize_Click" IsEnabled="False" FontWeight="Bold"/>
+            <local:TitleButton Width="30" Height="30" Content="×" Foreground="White" Grid.Column="4" FontFamily="YouYuan" FontSize="18" Click="Close_Click"/>
         </Grid>
         
         <!-- 以下为客户区布局 -->

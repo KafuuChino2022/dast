@@ -1,0 +1,41 @@
+﻿<Button x:Class="dast.TitleButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:dast"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="30">
+    <Button.Template>
+        <ControlTemplate>
+            <Grid>
+                <TextBlock x:Name="Button_Content" Text="{TemplateBinding Button.Content}" TextAlignment="Center" VerticalAlignment="Center" FontSize="{TemplateBinding Button.FontSize}" FontFamily="{TemplateBinding Button.FontFamily}" Foreground="{TemplateBinding Button.Foreground}" FontWeight="{TemplateBinding Button.FontWeight}"/>
+                <Rectangle RadiusX="15" RadiusY="15" Opacity="0.1">
+                    <Rectangle.Fill>
+                        <SolidColorBrush x:Name="Title_Button_Brush" Color="Transparent"/>
+                    </Rectangle.Fill>
+                    <Rectangle.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="Title_Button_Brush" Storyboard.TargetProperty="Color" To="White" Duration="0:0:0.1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="Title_Button_Brush" Storyboard.TargetProperty="Color" To="Transparent" Duration="0:0:0.1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </Rectangle.Triggers>
+                </Rectangle>
+            </Grid>
+        </ControlTemplate>
+    </Button.Template>
+</Button>
