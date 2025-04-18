@@ -6,7 +6,28 @@ using System.Threading.Tasks;
 
 namespace dast.Models
 {
-    internal class NaviModel
+    public class NaviModel
     {
+        /// <summary>
+        /// 图标
+        /// </summary>
+        private string _icon;
+
+        public string Icon
+        { 
+            get {return _icon;}
+            set {_icon = value;}
+        }
+
+        /// <summary>
+        /// 文本
+        /// </summary>
+        private string _title;
+
+        public string Title
+        {
+            get { return _title; }
+            set { _title = value; }
+        }
     }
 }

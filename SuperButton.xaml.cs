@@ -33,12 +33,12 @@ namespace dast
             {
                 From = 0,
                 To = 180,
-                Duration = new Duration(TimeSpan.FromSeconds(0.3))
+                Duration = new Duration(TimeSpan.FromSeconds(0.5))
             };
             roundEllipse.BeginAnimation(EllipseGeometry.RadiusXProperty, ani_expend);
             var ani_disapear = new DoubleAnimation()
             {
-                From = 0.3,
+                From = 0.1,
                 To = 0
             };
             var roundPath = Template.FindName("RoundPath", this) as Path;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dast.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace dast
         public MainWindow2()
         {
             InitializeComponent();
+
+            this.DataContext = new ButtonTitleModel();
         }
         /// <summary>
         /// 关闭窗口行为

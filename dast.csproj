@@ -59,12 +59,17 @@
       <DependentUpon>MainWindow2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\NaviModel.cs" />
+    <Compile Include="Models\Viewmodels\ButtonTitleModel.cs" />
     <Compile Include="SuperButton.xaml.cs">
       <DependentUpon>SuperButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="TitleButton.xaml.cs">
       <DependentUpon>TitleButton.xaml</DependentUpon>
     </Compile>
+    <Page Include="Dictionary\ButtonTitleDict.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -118,5 +123,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
