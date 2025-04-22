@@ -25,8 +25,8 @@
                 <DropShadowEffect BlurRadius="10" Color="Gray" ShadowDepth="0" Opacity="0.2"/>
             </Border.Effect>
         </Border>
-        <Border Background="#eeeeee" Grid.Row="0" Grid.Column="1" CornerRadius="15,15,15,15"/>
-        <Border CornerRadius="15" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="#80000000" Background="Transparent"/>
+        <Border Background="#eeeeee" Grid.Row="0" Grid.Column="1" CornerRadius="15,18,18,15"/>
+        
 
 
         <Grid Grid.Column="0">
@@ -39,16 +39,23 @@
                 <TextBlock Text="&#xe605;" FontFamily="../Assets/Fonts/#iconfont" FontSize="30" VerticalAlignment="Center"/>
                 <TextBlock VerticalAlignment="Center" Text="{Binding Title,RelativeSource={RelativeSource AncestorType=local:MainWindow2}}" Foreground="Black" FontSize="15" FontWeight="Bold"/>
             </StackPanel>
-            <StackPanel Orientation="Vertical" Grid.Row="1">
+            <StackPanel Orientation="Vertical" Grid.Row="1" Margin="10,0,-10,0">
                 <!-- <local:SuperButton BorderThickness="0" Content="垃圾识别" Foreground="#393e46" HorizontalAlignment="Center" VerticalAlignment="Center" Width="160" Height="30" Background="#00adb5" FontSize="16" FontFamily="../Assets/Fonts/#ZCOOL KuaiLe" FontWeight="Bold"/> -->
                 <ItemsControl ItemsSource="{Binding NaviCollection}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <RadioButton GroupName="ButtonList" Margin="30,0,0,0"  Style="{StaticResource TitleRadioButton}">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Icon}" FontFamily="../Assets/Fonts/#iconfont" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding Title}" FontFamily="../Assets/Fonts/#ZCOOL KuaiLe" VerticalAlignment="Center"/>
-                                </StackPanel>
+                            <RadioButton GroupName="ButtonList" HorizontalAlignment="Center" Style="{StaticResource TitleRadioButton}">
+                                <Grid VerticalAlignment="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="10"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Orientation="Horizontal" Grid.Column="0">
+                                        <TextBlock Text="{Binding Icon}" FontFamily="../Assets/Fonts/#iconfont" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{Binding Title}" FontFamily="../Assets/Fonts/#ZCOOL KuaiLe" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <TextBlock Text=">" Grid.Column="1" Style="{StaticResource ButtonTittleHiddenText}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#eeeeee"/>
+                                </Grid>
                             </RadioButton>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
@@ -70,9 +77,10 @@
                     <ColumnDefinition Width="40"/>
                 </Grid.ColumnDefinitions>
 
-                <local:TitleButton Width="30" Height="30" Content="—" Foreground="#222831" Grid.Column="1" FontSize="12" FontFamily="YouYuan" Click="Minimize_Click" FontWeight="Bold"/>
+                <local:TitleButton Width="30" Height="30" Content="—" Foreground="#222831" Grid.Column="1" FontSize="10" Click="Minimize_Click" FontWeight="Bold"/>
                 <local:TitleButton Width="30" Height="30" Content="×" Foreground="#222831" Grid.Column="2" FontFamily="YouYuan" FontSize="18" Click="Close_Click"/>
             </Grid>
         </Grid>
+        <Border BorderThickness="1" BorderBrush="#222831" Grid.ColumnSpan="2" CornerRadius="15,15,15,15"/>
     </Grid>
 </Window>
