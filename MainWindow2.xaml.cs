@@ -1,4 +1,5 @@
 ﻿using dast.Models.ViewModels;
+using Microsoft.Web.WebView2.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,48 +27,70 @@ namespace dast
             InitializeComponent();
 
             this.DataContext = new ButtonTitleModel();
+            WebViewPages.Loaded += WebView2_Loaded;
         }
-        /// <summary>
-        /// 关闭窗口行为
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Close_Click(object sender, RoutedEventArgs e)
+        
+        private void DragWindow(object sender, MouseButtonEventArgs e)
         {
-            this.Close();
+            if (e.ButtonState == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
         }
-        /// <summary>
-        /// 最大化窗口行为
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Maximize_Click(object sender, RoutedEventArgs e)
+
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void BtnRestore_Click(object sender, RoutedEventArgs e)
         {
             if (WindowState == WindowState.Normal)
                 WindowState = WindowState.Maximized;
             else
                 WindowState = WindowState.Normal;
         }
-        /// <summary>
-        /// 最小化窗口行为
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Minimize_Click(object sender, RoutedEventArgs e)
+
+        private void BtnMinimize_Click(object sender, RoutedEventArgs e)
         {
-            this.WindowState = WindowState.Minimized;
+            WindowState = WindowState.Minimized;
         }
-        /// <summary>
-        /// 拖动窗口行为
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void CustomTitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+
+        private void RadioHome_Checked(object sender, RoutedEventArgs e)
         {
-            if (e.ButtonState == MouseButtonState.Pressed)
-            {
-                DragMove();
-            }
+            string htmlPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pages/Content/index.html");
+            WebViewPages.CoreWebView2.Navigate(new Uri(htmlPath).AbsoluteUri);
+        }
+
+        private void RadioGame_Checked(object sender, RoutedEventArgs e)
+        {
+            string htmlPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pages/Content/Game.html");
+            WebViewPages.CoreWebView2.Navigate(new Uri(htmlPath).AbsoluteUri);
+        }
+
+        private void RadioNotes_Checked(object sender, RoutedEventArgs e)
+        {
+            WebViewPages.Source = new Uri("html/notes.html", UriKind.Relative);
+        }
+
+        private void RadioPayment_Checked(object sender, RoutedEventArgs e)
+        {
+            WebViewPages.Source = new Uri("html/notes.html", UriKind.Relative);
+        }
+
+        // 假设你的 XAML 中有一个 WebView2 控件
+        // <WebView2 x:Name="webView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+        private async void WebView2_Loaded(object sender, RoutedEventArgs e)
+        {
+            // 确保 WebView2 控件加载完毕
+            await WebViewPages.EnsureCoreWebView2Async();
+
+            // 禁用开发者工具
+            WebViewPages.CoreWebView2.Settings.AreDevToolsEnabled = false;
+
+            // 禁用浏览器控制台信息
+            WebViewPages.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
         }
     }
 }

@@ -8,8 +8,9 @@
              d:DesignHeight="30" d:DesignWidth="30">
     <Button.Template>
         <ControlTemplate>
+
             <Grid>
-                <TextBlock x:Name="Button_Content" Text="{TemplateBinding Button.Content}" TextAlignment="Center" VerticalAlignment="Center" FontSize="{TemplateBinding Button.FontSize}" FontFamily="{TemplateBinding Button.FontFamily}" Foreground="{TemplateBinding Button.Foreground}" FontWeight="{TemplateBinding Button.FontWeight}"/>
+                <Path Name="ico" Data="{TemplateBinding Button.Content}" Fill="{DynamicResource ActionIconColor}" Height="10" Width="10" Stretch="Uniform"/>
                 <Rectangle RadiusX="15" RadiusY="15" Opacity="0.1">
                     <Rectangle.Fill>
                         <SolidColorBrush x:Name="Title_Button_Brush" Color="Transparent"/>
@@ -33,9 +34,23 @@
                                 </BeginStoryboard>
                             </EventTrigger.Actions>
                         </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="Title_Button_Brush" Storyboard.TargetProperty="Color" To="Transparent" Duration="0:0:0.1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
                     </Rectangle.Triggers>
                 </Rectangle>
             </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter TargetName="ico" Property="Fill" Value="{DynamicResource InactiveIconColor}"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
         </ControlTemplate>
     </Button.Template>
 </Button>

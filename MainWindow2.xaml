@@ -14,78 +14,95 @@
         ResizeMode="NoResize"
         Height="490" MinHeight="490" MaxHeight="490"
         Width="840" MinWidth="840" MaxWidth="840">
-    <!-- 窗口样式 -->
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="160"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+    <Border CornerRadius="8" Background="{DynamicResource PrimaryBackgroundColor}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <!-- Start: GridColum Left-->
+            <Border CornerRadius="8 0 0 8" Background="{DynamicResource SecundaryBackgroundColor}">
+                <Grid x:Name="gridMenu" Width="60">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-        <Border Background="#00adb5" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" CornerRadius="18" Margin="0,0,10,0" MouseLeftButtonDown="CustomTitleBar_MouseLeftButtonDown"/>
-        <Border Background="#eeeeee" Grid.Row="0" Grid.Column="1" Margin="0,0,20,0" CornerRadius="15,0,0,15">
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="10" Color="Gray" ShadowDepth="0" Opacity="0.2"/>
-            </Border.Effect>
-        </Border>
-        <Border Background="#eeeeee" Grid.Row="0" Grid.Column="1" CornerRadius="15,18,18,15"/>
-        
+                    <!-- Logo -->
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Top">
+                        <Viewbox Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <ContentControl Content="{StaticResource logo}"/>
+                        </Viewbox>
+                        <Label Content="垃圾探索家" Foreground="{DynamicResource PeimaryWhiteColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="10 0 0 0"/>
+                    </StackPanel>
 
+                    <!-- Menu -->
+                    <ToggleButton x:Name="btnMenu"  HorizontalAlignment="Right" BorderThickness="0" Background="Transparent" VerticalAlignment="Center" Style="{StaticResource MenuIconStyle}" Margin="0 0 15 0">
+                        <ToggleButton.Triggers>
+                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="HideStackPanel">
+                                        <DoubleAnimation Storyboard.TargetName="gridMenu" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="200" To="60" Duration="0:0:0.3">
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="ShowStackPanel">
+                                        <DoubleAnimation Storyboard.TargetName="gridMenu" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="60" To="200" Duration="0:0:0.3">
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ToggleButton.Triggers>
+                    </ToggleButton>
 
-        <Grid Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="80"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-
-            <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center" Margin="0,10,0,10">
-                <TextBlock Text="&#xe605;" FontFamily="../Assets/Fonts/#iconfont" FontSize="30" VerticalAlignment="Center"/>
-                <TextBlock VerticalAlignment="Center" Text="{Binding Title,RelativeSource={RelativeSource AncestorType=local:MainWindow2}}" Foreground="Black" FontSize="15" FontWeight="Bold"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical" Grid.Row="1" Margin="10,0,-10,0">
-                <!-- <local:SuperButton BorderThickness="0" Content="垃圾识别" Foreground="#393e46" HorizontalAlignment="Center" VerticalAlignment="Center" Width="160" Height="30" Background="#00adb5" FontSize="16" FontFamily="../Assets/Fonts/#ZCOOL KuaiLe" FontWeight="Bold"/> -->
-                <ItemsControl ItemsSource="{Binding NaviCollection}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <RadioButton GroupName="ButtonList" HorizontalAlignment="Center" Style="{StaticResource TitleRadioButton}">
-                                <Grid VerticalAlignment="Center">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition Width="10"/>
-                                    </Grid.ColumnDefinitions>
-                                    <StackPanel Orientation="Horizontal" Grid.Column="0">
-                                        <TextBlock Text="{Binding Icon}" FontFamily="../Assets/Fonts/#iconfont" VerticalAlignment="Center"/>
-                                        <TextBlock Text="{Binding Title}" FontFamily="../Assets/Fonts/#ZCOOL KuaiLe" VerticalAlignment="Center"/>
-                                    </StackPanel>
-                                    <TextBlock Text=">" Grid.Column="1" Style="{StaticResource ButtonTittleHiddenText}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#eeeeee"/>
-                                </Grid>
-                            </RadioButton>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </StackPanel>
-        </Grid>
-
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-
-            <Border Background="Transparent" Grid.Row="0" MouseLeftButtonDown="CustomTitleBar_MouseLeftButtonDown"/>
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition MouseLeftButtonDown="CustomTitleBar_MouseLeftButtonDown"/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="40"/>
-                </Grid.ColumnDefinitions>
-
-                <local:TitleButton Width="30" Height="30" Content="—" Foreground="#222831" Grid.Column="1" FontSize="10" Click="Minimize_Click" FontWeight="Bold"/>
-                <local:TitleButton Width="30" Height="30" Content="×" Foreground="#222831" Grid.Column="2" FontFamily="YouYuan" FontSize="18" Click="Close_Click"/>
-            </Grid>
-            <Border Grid.Row="1">
-                <wv2:WebView2 x:Name="MyWebView" Source="about:blank" />
+                    <StackPanel Grid.Row="3">
+                        <RadioButton x:Name="rdHome" IsChecked="True" Content="垃圾识别" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page1}" Click="RadioHome_Checked"/>
+                        <RadioButton x:Name="rdGame" Content="小游戏" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page2}" Margin="0 5 0 5" Click="RadioGame_Checked"/>
+                        <RadioButton x:Name="rdNotes" Content="Page3" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page3}" Click="RadioNotes_Checked"/>
+                        <RadioButton x:Name="rdPayment" Content="Page4" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page4}" Margin="0 5 0 5" Click="RadioPayment_Checked"/>
+                    </StackPanel>
+                </Grid>
             </Border>
+            <!-- End: GridColum Left-->
+
+            <!-- Start: GridColumn Rigth -->
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" MouseLeftButtonDown="DragWindow"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Border x:Name="Drager" Background="Transparent" Grid.Row="0" MouseLeftButtonDown="DragWindow"/>
+
+                <!-- Start: Button Close | Restore | Minimize -->
+                <StackPanel Grid.Row="0" Margin="10,5" Orientation="Horizontal" FlowDirection="RightToLeft">
+                    <local:TitleButton x:Name="btnClose" Content="{DynamicResource close}" Click="BtnClose_Click" Tag="IsCloseButton" Width="30"/>
+                    <local:TitleButton x:Name="btnRestore" Click="BtnRestore_Click" IsEnabled="False" Width="30">
+                        <local:TitleButton.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Content" Value="{DynamicResource maximize}"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=home, Path=WindowState}" Value="Maximized">
+                                        <Setter Property="Content" Value="{DynamicResource restore}"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </local:TitleButton.Style>
+                    </local:TitleButton>
+                    <local:TitleButton x:Name="btnMinimize" Content="{DynamicResource minimize}" Click="BtnMinimize_Click" Width="30"/>
+                </StackPanel>
+                <!-- End: Button Close | Restore | Minimize -->
+
+                <Border Grid.Row="1" Margin="10">
+                    <wv2:WebView2 x:Name="WebViewPages" Source="about:blank" />
+                </Border>
+            </Grid>
+            <!-- Start: GridColumn Rigth -->
         </Grid>
-        <Border BorderThickness="1" BorderBrush="#222831" Grid.ColumnSpan="2" CornerRadius="15,15,15,15"/>
-    </Grid>
+    </Border>
 </Window>
