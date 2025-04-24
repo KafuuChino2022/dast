@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+
         xmlns:local="clr-namespace:dast"
         mc:Ignorable="d"
         Background="Transparent"
@@ -70,7 +72,7 @@
             </Grid.RowDefinitions>
 
             <Border Background="Transparent" Grid.Row="0" MouseLeftButtonDown="CustomTitleBar_MouseLeftButtonDown"/>
-            <Grid Grid.Column="0">
+            <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition MouseLeftButtonDown="CustomTitleBar_MouseLeftButtonDown"/>
                     <ColumnDefinition Width="40"/>
@@ -80,6 +82,9 @@
                 <local:TitleButton Width="30" Height="30" Content="—" Foreground="#222831" Grid.Column="1" FontSize="10" Click="Minimize_Click" FontWeight="Bold"/>
                 <local:TitleButton Width="30" Height="30" Content="×" Foreground="#222831" Grid.Column="2" FontFamily="YouYuan" FontSize="18" Click="Close_Click"/>
             </Grid>
+            <Border Grid.Row="1">
+                <wv2:WebView2 x:Name="MyWebView" Source="about:blank" />
+            </Border>
         </Grid>
         <Border BorderThickness="1" BorderBrush="#222831" Grid.ColumnSpan="2" CornerRadius="15,15,15,15"/>
     </Grid>

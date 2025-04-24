@@ -10,6 +10,8 @@
                 <FontFamily x:Key="ZCOOLKuaiLe">/dast;Component/Assets/Fonts/#ZCOOL KuaiLe</FontFamily>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Dictionary/ButtonTitleDict.xaml"/>
+
+                <ResourceDictionary Source="/Themes/ColorsTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
