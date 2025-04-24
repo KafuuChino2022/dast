@@ -1,0 +1,150 @@
+/* 新增字体导入 */
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Microsoft YaHei', sans-serif;
+    background-image: url('1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+
+.title {
+    font-size: 4.5rem; /* 从3.5rem增大到4.5rem */
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    font-family: 'Ma Shan Zheng', cursive;
+    /* 确保以下居中属性保持不变 */
+    display: block;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    left: 0;
+}
+
+
+.left-menu {
+    width: 220px;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 20px 0;
+    flex-shrink: 0; /* 防止菜单被压缩 */
+    height: auto !important; 
+    overflow: visible !important;
+}
+
+.left-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+.left-menu li {
+    padding: 12px 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.left-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: block;
+    transition: all 0.3s;
+    font-size: 1.1rem;
+}
+
+.left-menu a:hover {
+    color: #4CAF50;
+    transform: translateX(5px);
+}
+
+/* 修改主内容区样式 */
+
+.subtitle {
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.upload-area {
+    margin-bottom: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#upload-image {
+    max-width: 300px;
+    max-height: 300px;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    display: block;
+    margin: 0 auto;
+}
+
+#upload-image:hover {
+    transform: scale(1.05);
+}
+
+.action-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+.action-button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+/* 修改header部分 */
+header {
+    text-align: center;
+    padding: 20px 0;
+    position: relative; /* 添加这行 */
+    z-index: 10; /* 确保标题在最上层 */
+    width: 100%; /* 确保宽度满屏 */
+    left: 0; /* 重置定位 */
+}
+
+/* 修改.main-content */
+.main-content {
+    display: flex;
+    flex: 1;
+    position: relative; /* 添加这行 */
+}
+
+/* 修改.main-center */
+.main-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin-left: 0; /* 移除之前的-220px */
+    width: calc(100% - 220px); /* 计算宽度时减去菜单宽度 */
+    margin-right: 220px; /* 平衡左右空间 */
+}

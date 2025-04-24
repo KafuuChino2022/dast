@@ -11,7 +11,11 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Dictionary/ButtonTitleDict.xaml"/>
 
-                <ResourceDictionary Source="/Themes/ColorsTheme.xaml"/>
+                <ResourceDictionary Source="/Themes/LightTheme.xaml"/>
+
+                <ResourceDictionary Source="/Styles/MainStyle.xaml"/>
+
+                <ResourceDictionary Source="/Assets/Icons/Icons.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

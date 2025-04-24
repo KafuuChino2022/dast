@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册 - 垃圾探索家</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-image: url('登录.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+        }
+        
+        .container {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+        }
+        
+        /* 左侧菜单 */
+        .left-menu {
+            width: 220px;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 20px 0;
+        }
+        
+        .left-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .left-menu li {
+            padding: 12px 25px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .left-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: block;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .left-menu a:hover {
+            color: #4CAF50;
+            transform: translateX(5px);
+        }
+        
+        /* 中间注册区域 */
+        .register-center {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .title {
+            font-size: 4.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 50px;
+            font-family: 'Ma Shan Zheng', cursive;
+        }
+        
+        .register-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            width: 400px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        
+        .register-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        
+        .register-button:hover {
+            background-color: #45a049;
+        }
+        
+        .success-message {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border: 1px solid #a5d6a7;
+            border-radius: 5px;
+            color: #2e7d32;
+            display: none;
+        }
+        
+        .generated-account {
+            font-weight: bold;
+            color: #2196F3;
+        }
+        
+        .error-message {
+            color: #f44336;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 左侧菜单（仅设置） -->
+        <nav class="left-menu">
+            <ul>
+                <li><a href="#">设置</a></li>
+            </ul>
+        </nav>
+        
+        <!-- 中间注册区域 -->
+        <div class="register-center">
+            <h1 class="title">垃圾探索家</h1>
+            
+            <div class="register-box">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="password">设置密码</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">确认密码</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                    
+                    <button type="submit" class="register-button">立即注册</button>
+                    
+                    <div id="errorMessage" class="error-message"></div>
+                    
+                    <div id="successMessage" class="success-message">
+                        <p>注册成功！</p>
+                        <p>您的账号是：<span class="generated-account" id="generatedAccount"></span></p>
+                        <p>请妥善保管您的账号信息</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const errorElement = document.getElementById('errorMessage');
+            const successElement = document.getElementById('successMessage');
+            const accountElement = document.getElementById('generatedAccount');
+            
+            // 验证密码是否一致
+            if(password !== confirmPassword) {
+                errorElement.textContent = '两次输入的密码不一致！';
+                successElement.style.display = 'none';
+                return;
+            }
+            
+            // 验证密码长度
+            if(password.length < 6) {
+                errorElement.textContent = '密码长度不能少于6位！';
+                successElement.style.display = 'none';
+                return;
+            }
+            
+            // 清除错误信息
+            errorElement.textContent = '';
+            
+            // 生成8位随机数字账号
+            const randomAccount = Math.floor(10000000 + Math.random() * 90000000);
+            
+            // 显示成功信息
+            accountElement.textContent = randomAccount;
+            successElement.style.display = 'block';
+            
+            // 3秒后自动跳转到登录页
+            setTimeout(() => {
+                window.location.href = '登录界面.html';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
