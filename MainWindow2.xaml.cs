@@ -64,18 +64,20 @@ namespace dast
 
         private void RadioGame_Checked(object sender, RoutedEventArgs e)
         {
-            string htmlPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pages/Content/Game.html");
+            string htmlPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pages/Content/game.html");
             WebViewPages.CoreWebView2.Navigate(new Uri(htmlPath).AbsoluteUri);
         }
 
-        private void RadioNotes_Checked(object sender, RoutedEventArgs e)
+        private void RadioEssay_Checked(object sender, RoutedEventArgs e)
         {
-            WebViewPages.Source = new Uri("html/notes.html", UriKind.Relative);
+            string htmlPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pages/Content/essay.html");
+            WebViewPages.CoreWebView2.Navigate(new Uri(htmlPath).AbsoluteUri);
         }
 
-        private void RadioPayment_Checked(object sender, RoutedEventArgs e)
+        private void RadioAdmin_Checked(object sender, RoutedEventArgs e)
         {
-            WebViewPages.Source = new Uri("html/notes.html", UriKind.Relative);
+            string htmlPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pages/Content/admin.html");
+            WebViewPages.CoreWebView2.Navigate(new Uri(htmlPath).AbsoluteUri);
         }
 
         // 假设你的 XAML 中有一个 WebView2 控件
@@ -91,6 +93,11 @@ namespace dast
 
             // 禁用浏览器控制台信息
             WebViewPages.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
+        }
+
+        private void InitWebPage(object sender, CoreWebView2InitializationCompletedEventArgs e)
+        {
+            WebViewPages.DefaultBackgroundColor = System.Drawing.Color.Transparent;
         }
     }
 }

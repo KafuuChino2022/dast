@@ -61,10 +61,10 @@
                     </ToggleButton>
 
                     <StackPanel Grid.Row="3">
-                        <RadioButton x:Name="rdHome" IsChecked="True" Content="垃圾识别" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page1}" Click="RadioHome_Checked"/>
-                        <RadioButton x:Name="rdGame" Content="小游戏" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page2}" Margin="0 5 0 5" Click="RadioGame_Checked"/>
-                        <RadioButton x:Name="rdNotes" Content="Page3" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page3}" Click="RadioNotes_Checked"/>
-                        <RadioButton x:Name="rdPayment" Content="Page4" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page4}" Margin="0 5 0 5" Click="RadioPayment_Checked"/>
+                        <RadioButton x:Name="rdHome" IsChecked="True" Content="垃圾识别" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page1}" Click="RadioHome_Checked"/>
+                        <RadioButton x:Name="rdGame" Content="游戏" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page2}" Margin="0 5 0 5" Click="RadioGame_Checked"/>
+                        <RadioButton x:Name="rdNotes" Content="科普文章分享" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page3}" Click="RadioEssay_Checked"/>
+                        <RadioButton x:Name="rdPayment" Content="用户" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page4}" Margin="0 5 0 5" Click="RadioAdmin_Checked"/>
                     </StackPanel>
                 </Grid>
             </Border>
@@ -99,7 +99,7 @@
                 <!-- End: Button Close | Restore | Minimize -->
 
                 <Border Grid.Row="1" Margin="10">
-                    <wv2:WebView2 x:Name="WebViewPages" Source="about:blank" />
+                    <wv2:WebView2 x:Name="WebViewPages" Source="about:blank"  CoreWebView2InitializationCompleted="InitWebPage"/>
                 </Border>
             </Grid>
             <!-- Start: GridColumn Rigth -->
