@@ -30,6 +30,7 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     margin: 0;
     font-family: 'Ma Shan Zheng', cursive;
+    user-select: none;
 }
 
 /* 删除整个.left-menu相关样式 */
@@ -67,6 +68,7 @@ header {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     margin-bottom: 30px;
     text-align: center;
+    user-select: none;
 }
 
 .upload-area {
@@ -101,6 +103,7 @@ header {
     transition: background-color 0.3s, transform 0.2s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-top: 20px;
+    -webkit-user-drag: none;
 }
 
 .action-button:hover {

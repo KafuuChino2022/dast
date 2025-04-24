@@ -39,7 +39,14 @@
                     <h2 class="developing-title">用户</h2>
                     <p>该功能正在紧张开发中，敬请期待！</p>
                     <p>预计上线时间：2025年5月</p>
-                    <a href="index.html" class="action-button">返回首页</a>
+                    <a href="index.html" class="action-button" onclick="postMsg()">返回首页</a>
+                    <script>
+                        window.onload = function () {
+                        }
+                        function postMsg() {
+                            window.chrome.webview.postMessage("1");
+                        }
+                    </script>
                 </div>
             </div>
         </div>

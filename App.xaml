@@ -4,13 +4,9 @@
              xmlns:local="clr-namespace:dast"
              StartupUri="MainWindow2.xaml">
     <Application.Resources>
-        
-        <ResourceDictionary>
-            <DropShadowEffect x:Key="LeftSideShadow" BlurRadius="10" ShadowDepth="6" Direction="180" Color="#80000000" Opacity="0.1" />
-                <FontFamily x:Key="ZCOOLKuaiLe">/dast;Component/Assets/Fonts/#ZCOOL KuaiLe</FontFamily>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Dictionary/ButtonTitleDict.xaml"/>
 
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Themes/LightTheme.xaml"/>
 
                 <ResourceDictionary Source="/Styles/MainStyle.xaml"/>

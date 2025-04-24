@@ -1,5 +1,4 @@
-﻿using dast.Models.ViewModels;
-using Microsoft.Web.WebView2.Core;
+﻿using Microsoft.Web.WebView2.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,9 +24,7 @@ namespace dast
         public MainWindow2()
         {
             InitializeComponent();
-
-            this.DataContext = new ButtonTitleModel();
-            WebViewPages.Loaded += WebView2_Loaded;
+            InitWebView();
         }
         
         private void DragWindow(object sender, MouseButtonEventArgs e)
@@ -95,9 +92,21 @@ namespace dast
             WebViewPages.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
         }
 
-        private void InitWebPage(object sender, CoreWebView2InitializationCompletedEventArgs e)
+        private async void InitWebView()
         {
             WebViewPages.DefaultBackgroundColor = System.Drawing.Color.Transparent;
+            WebViewPages.Loaded += WebView2_Loaded;
+            await WebViewPages.EnsureCoreWebView2Async();
+            WebViewPages.CoreWebView2.WebMessageReceived += GetMessage;
+        }
+
+        private void GetMessage(object sender, CoreWebView2WebMessageReceivedEventArgs e)
+        {
+            string msg = e.TryGetWebMessageAsString();
+            if (msg == "1")
+            {
+                Dispatcher.Invoke(() => rdHome.IsChecked = true);
+            }
         }
     }
 }

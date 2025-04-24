@@ -6,14 +6,14 @@
         xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
 
         xmlns:local="clr-namespace:dast"
-        mc:Ignorable="d"
+        mc:Ignorable="d" Name="home"
         Background="Transparent"
         AllowsTransparency="True"
         WindowStyle="None"
         Title="垃圾探索家"
         ResizeMode="NoResize"
-        Height="490" MinHeight="490" MaxHeight="490"
-        Width="840" MinWidth="840" MaxWidth="840">
+        Height="490" MinHeight="490"
+        Width="840" MinWidth="840">
     <Border CornerRadius="8" Background="{DynamicResource PrimaryBackgroundColor}">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -61,7 +61,7 @@
                     </ToggleButton>
 
                     <StackPanel Grid.Row="3">
-                        <RadioButton x:Name="rdHome" IsChecked="True" Content="垃圾识别" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page1}" Click="RadioHome_Checked"/>
+                        <RadioButton x:Name="rdHome" Content="垃圾识别" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page1}" Click="RadioHome_Checked"/>
                         <RadioButton x:Name="rdGame" Content="游戏" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page2}" Margin="0 5 0 5" Click="RadioGame_Checked"/>
                         <RadioButton x:Name="rdNotes" Content="科普文章分享" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page3}" Click="RadioEssay_Checked"/>
                         <RadioButton x:Name="rdPayment" Content="用户" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page4}" Margin="0 5 0 5" Click="RadioAdmin_Checked"/>
@@ -82,7 +82,7 @@
                 <!-- Start: Button Close | Restore | Minimize -->
                 <StackPanel Grid.Row="0" Margin="10,5" Orientation="Horizontal" FlowDirection="RightToLeft">
                     <local:TitleButton x:Name="btnClose" Content="{DynamicResource close}" Click="BtnClose_Click" Tag="IsCloseButton" Width="30"/>
-                    <local:TitleButton x:Name="btnRestore" Click="BtnRestore_Click" IsEnabled="False" Width="30">
+                    <local:TitleButton x:Name="btnRestore" Click="BtnRestore_Click" IsEnabled="True" Width="30">
                         <local:TitleButton.Style>
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="Content" Value="{DynamicResource maximize}"/>
@@ -97,9 +97,10 @@
                     <local:TitleButton x:Name="btnMinimize" Content="{DynamicResource minimize}" Click="BtnMinimize_Click" Width="30"/>
                 </StackPanel>
                 <!-- End: Button Close | Restore | Minimize -->
-
+                
+                <!-- Start: WebView2 Pages -->
                 <Border Grid.Row="1" Margin="10">
-                    <wv2:WebView2 x:Name="WebViewPages" Source="about:blank"  CoreWebView2InitializationCompleted="InitWebPage"/>
+                    <wv2:WebView2 x:Name="WebViewPages" Source="about:blank"/>
                 </Border>
             </Grid>
             <!-- Start: GridColumn Rigth -->
