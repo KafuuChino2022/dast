@@ -77,25 +77,30 @@ namespace dast
             WebViewPages.CoreWebView2.Navigate(new Uri(htmlPath).AbsoluteUri);
         }
 
+        private void RadioCompetition_Checked(object sender, RoutedEventArgs e)
+        {
+            string htmlPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pages/Content/competition.html");
+            WebViewPages.CoreWebView2.Navigate(new Uri(htmlPath).AbsoluteUri);
+        }
+
+        private void RadioStore_Checked(object sender, RoutedEventArgs e)
+        {
+            string htmlPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pages/Content/store.html");
+            WebViewPages.CoreWebView2.Navigate(new Uri(htmlPath).AbsoluteUri);
+        }
+
+        private void RadioSetting_Checked(object sender, RoutedEventArgs e)
+        {
+            string htmlPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pages/Content/setting.html");
+            WebViewPages.CoreWebView2.Navigate(new Uri(htmlPath).AbsoluteUri);
+        }
+
         // 假设你的 XAML 中有一个 WebView2 控件
         // <WebView2 x:Name="webView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-
-        private async void WebView2_Loaded(object sender, RoutedEventArgs e)
-        {
-            // 确保 WebView2 控件加载完毕
-            await WebViewPages.EnsureCoreWebView2Async();
-
-            // 禁用开发者工具
-            WebViewPages.CoreWebView2.Settings.AreDevToolsEnabled = false;
-
-            // 禁用浏览器控制台信息
-            WebViewPages.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
-        }
 
         private async void InitWebView()
         {
             WebViewPages.DefaultBackgroundColor = System.Drawing.Color.Transparent;
-            WebViewPages.Loaded += WebView2_Loaded;
             await WebViewPages.EnsureCoreWebView2Async();
             WebViewPages.CoreWebView2.WebMessageReceived += GetMessage;
         }
@@ -108,5 +113,7 @@ namespace dast
                 Dispatcher.Invoke(() => rdHome.IsChecked = true);
             }
         }
+
+        
     }
 }

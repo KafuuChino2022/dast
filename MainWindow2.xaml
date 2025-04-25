@@ -21,6 +21,11 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <!-- Start: GridColum Left-->
+            <Border x:Name="ShadowMaker" Grid.Column="0" Background="{DynamicResource SecundaryBackgroundColor}" Width="1" HorizontalAlignment="Right">
+                <Border.Effect>
+                    <DropShadowEffect Color="Black" Direction="180" ShadowDepth="0" BlurRadius="10"/>
+                </Border.Effect>
+            </Border>
             <Border CornerRadius="8 0 0 8" Background="{DynamicResource SecundaryBackgroundColor}">
                 <Grid x:Name="gridMenu" Width="60">
                     <Grid.RowDefinitions>
@@ -39,32 +44,43 @@
                     </StackPanel>
 
                     <!-- Menu -->
-                    <ToggleButton x:Name="btnMenu"  HorizontalAlignment="Right" BorderThickness="0" Background="Transparent" VerticalAlignment="Center" Style="{StaticResource MenuIconStyle}" Margin="0 0 15 0">
+                    <ToggleButton x:Name="btnMenu" HorizontalAlignment="Right" BorderThickness="0" Background="Transparent" VerticalAlignment="Center" Style="{StaticResource MenuIconStyle}" Margin="0 0 15 0">
                         <ToggleButton.Triggers>
-                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                            <EventTrigger RoutedEvent="ToggleButton.Checked">
                                 <BeginStoryboard>
                                     <Storyboard x:Name="HideStackPanel">
-                                        <DoubleAnimation Storyboard.TargetName="gridMenu" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="200" To="60" Duration="0:0:0.2" Timeline.DesiredFrameRate="60">
-                                        </DoubleAnimation>
+                                        <DoubleAnimation Storyboard.TargetName="gridMenu"
+                                     Storyboard.TargetProperty="Width"
+                                     To="200" Duration="0:0:0.2" Timeline.DesiredFrameRate="30"/>
+                                        <!-- <DoubleAnimation Storyboard.TargetName="WebViewPages"
+                                     Storyboard.TargetProperty="Width"
+                                     To="620" Duration="0:0:0.2"/> -->
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
-                            <EventTrigger RoutedEvent="ToggleButton.Checked">
+                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
                                 <BeginStoryboard>
                                     <Storyboard x:Name="ShowStackPanel">
-                                        <DoubleAnimation Storyboard.TargetName="gridMenu" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="60" To="200" Duration="0:0:0.2" Timeline.DesiredFrameRate="60">
-                                        </DoubleAnimation>
+                                        <DoubleAnimation Storyboard.TargetName="gridMenu"
+                                     Storyboard.TargetProperty="Width"
+                                     To="60" Duration="0:0:0.2" Timeline.DesiredFrameRate="30"/>
+                                        <!-- <DoubleAnimation Storyboard.TargetName="WebViewPages"
+                                    Storyboard.TargetProperty="Width"
+                                    To="760" Duration="0:0:0.2"/> -->
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
                         </ToggleButton.Triggers>
                     </ToggleButton>
 
-                    <StackPanel Grid.Row="3">
-                        <RadioButton x:Name="rdHome" Content="垃圾识别" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page1}" Click="RadioHome_Checked"/>
-                        <RadioButton x:Name="rdGame" Content="游戏" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page2}" Margin="0 5 0 5" Click="RadioGame_Checked"/>
-                        <RadioButton x:Name="rdNotes" Content="科普文章分享" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page3}" Click="RadioEssay_Checked"/>
-                        <RadioButton x:Name="rdPayment" Content="用户" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Page4}" Margin="0 5 0 5" Click="RadioAdmin_Checked"/>
+                    <StackPanel Grid.Row="3" Cursor="Hand">
+                        <RadioButton x:Name="rdHome" Content="垃圾识别" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource index}" Click="RadioHome_Checked"/>
+                        <RadioButton x:Name="rdGame" Content="游戏" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource game}" Margin="0,0,0,5" Click="RadioGame_Checked"/>
+                        <RadioButton x:Name="rdEssay" Content="科普文章分享" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource essay}" Margin="0,0,0,5" Click="RadioEssay_Checked"/>
+                        <RadioButton x:Name="rdCompetition" Content="垃圾分类准则" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource competition}" Margin="0,0,0,5" Click="RadioCompetition_Checked"/>
+                        <RadioButton x:Name="rdStore" Content="积分商城" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource store}" Margin="0,0,0,5" Click="RadioStore_Checked"/>
+                        <RadioButton x:Name="rdAdmin" Content="用户" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource admin}" Margin="0,0,0,5" Click="RadioAdmin_Checked"/>
+                        <RadioButton x:Name="rdSetting" Content="设置" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource setting}" Margin="0,35,0,0" Click="RadioSetting_Checked"/>
                     </StackPanel>
                 </Grid>
             </Border>
@@ -82,7 +98,7 @@
                 <!-- Start: Button Close | Restore | Minimize -->
                 <StackPanel Grid.Row="0" Margin="10,5" Orientation="Horizontal" FlowDirection="RightToLeft">
                     <local:TitleButton x:Name="btnClose" Content="{DynamicResource close}" Click="BtnClose_Click" Tag="IsCloseButton" Width="30"/>
-                    <local:TitleButton x:Name="btnRestore" Click="BtnRestore_Click" IsEnabled="True" Width="30">
+                    <local:TitleButton x:Name="btnRestore" Click="BtnRestore_Click" IsEnabled="False" Width="30">
                         <local:TitleButton.Style>
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="Content" Value="{DynamicResource maximize}"/>

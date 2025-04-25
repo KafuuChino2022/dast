@@ -1,112 +1,114 @@
 /* 新增字体导入 */
 @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
 
+/* 通用设置 */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Microsoft YaHei', sans-serif;
-    background-image: url('1.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background: url('1.jpg') center center;
     color: #333;
     min-height: 100vh;
 }
 
+/* 页面容器 */
 .container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
+/* 页面标题 */
 .title {
-    display: block;
-    text-align: center;
-    width: 100%;
-    position: relative;
-    left: 0;
+    font-family: 'Ma Shan Zheng', cursive;
     font-size: 4.5rem;
     color: #fff;
+    text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     margin: 0;
-    font-family: 'Ma Shan Zheng', cursive;
     user-select: none;
 }
 
-/* 删除整个.left-menu相关样式 */
-
+/* 页眉 */
 header {
     text-align: center;
     padding: 20px 0;
     position: relative;
     z-index: 10;
     width: 100%;
-    left: 0;
 }
 
+/* 主体内容区域 */
 .main-content {
-    display: flex;
     flex: 1;
+    display: flex;
+    justify-content: center;
     position: relative;
-    justify-content: center; /* 添加此行使内容居中 */
 }
 
+/* 居中内容块 */
 .main-center {
     flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
-    width: 100%; /* 修改为100%宽度 */
-    max-width: 1200px; /* 可选：设置最大宽度 */
 }
 
+/* 副标题样式 */
 .subtitle {
     font-size: 2.5rem;
     color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-bottom: 30px;
     text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top:0px;
+    margin-bottom: 40px;
     user-select: none;
 }
 
+/* 图片上传区域 */
 .upload-area {
     margin-bottom: 20px;
-    cursor: pointer;
     text-align: center;
+    cursor: pointer;
 }
 
+/* 上传图片显示样式 */
 #upload-image {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 150px;
+    max-height: 150px;
+    margin: 0 auto;
+    display: block;
     border: 3px solid #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s;
-    display: block;
-    margin: 0 auto;
+    transition: transform 0.3s ease;
 }
 
-#upload-image:hover {
-    transform: scale(1.05);
-}
+    #upload-image:hover {
+        transform: scale(1.05);
+    }
 
+/* 通用按钮样式 */
 .action-button {
     display: inline-block;
-    padding: 12px 30px;
-    background-color: #4CAF50;
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-    border-radius: 25px;
-    transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #4CAF50;
+    text-decoration: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
     -webkit-user-drag: none;
+    user-select: none;
 }
 
-.action-button:hover {
-    background-color: #45a049;
-    transform: translateY(-2px);
-}
+    .action-button:hover {
+        background-color: #45a049;
+        transform: translateY(-2px);
+    }
