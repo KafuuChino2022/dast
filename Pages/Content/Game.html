@@ -15,17 +15,21 @@
             text-align: center;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
+
         .developing-title {
             font-size: 2rem;
             color: #4CAF50;
             margin-bottom: 20px;
         }
+
         .developing-icon {
             font-size: 3rem;
             margin-bottom: 20px;
             color: #FFC107;
         }
     </style>
+    <script src="../Scripts/nav.js"></script>
+    <script src="../Scripts/jump.js"></script>
 </head>
 <body>
     <div class="container">
@@ -42,14 +46,7 @@
                     <h2 class="developing-title">游戏</h2>
                     <p>该功能正在紧张开发中，敬请期待！</p>
                     <p>预计上线时间：2025年5月</p>
-                    <a href="index.html" class="action-button" onclick="postMsg()">返回首页</a>
-                    <script>
-                        window.onload = function () {
-                        }
-                        function postMsg() {
-                            window.chrome.webview.postMessage("1");
-                        }
-                    </script>
+                    <a href="index.html" class="action-button" onclick="postMsg('home')">返回首页</a>
                 </div>
             </div>
         </div>

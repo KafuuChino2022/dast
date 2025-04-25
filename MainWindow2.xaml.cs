@@ -24,7 +24,6 @@ namespace dast
         public MainWindow2()
         {
             InitializeComponent();
-            InitWebView();
         }
         
         private void DragWindow(object sender, MouseButtonEventArgs e)
@@ -55,62 +54,80 @@ namespace dast
 
         private void RadioHome_Checked(object sender, RoutedEventArgs e)
         {
-            string htmlPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pages/Content/index.html");
-            WebViewPages.CoreWebView2.Navigate(new Uri(htmlPath).AbsoluteUri);
+            WebViewPages.CoreWebView2?.ExecuteScriptAsync($"jumpTo('index')");
         }
 
         private void RadioGame_Checked(object sender, RoutedEventArgs e)
         {
-            string htmlPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pages/Content/game.html");
-            WebViewPages.CoreWebView2.Navigate(new Uri(htmlPath).AbsoluteUri);
+            WebViewPages.CoreWebView2?.ExecuteScriptAsync($"jumpTo('game')");
         }
 
         private void RadioEssay_Checked(object sender, RoutedEventArgs e)
         {
-            string htmlPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pages/Content/essay.html");
-            WebViewPages.CoreWebView2.Navigate(new Uri(htmlPath).AbsoluteUri);
+            WebViewPages.CoreWebView2?.ExecuteScriptAsync($"jumpTo('essay')");
         }
 
         private void RadioAdmin_Checked(object sender, RoutedEventArgs e)
         {
-            string htmlPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pages/Content/admin.html");
-            WebViewPages.CoreWebView2.Navigate(new Uri(htmlPath).AbsoluteUri);
+            WebViewPages.CoreWebView2?.ExecuteScriptAsync($"jumpTo('admin')");
         }
 
         private void RadioCompetition_Checked(object sender, RoutedEventArgs e)
         {
-            string htmlPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pages/Content/competition.html");
-            WebViewPages.CoreWebView2.Navigate(new Uri(htmlPath).AbsoluteUri);
+            WebViewPages.CoreWebView2?.ExecuteScriptAsync($"jumpTo('competition')");
         }
 
         private void RadioStore_Checked(object sender, RoutedEventArgs e)
         {
-            string htmlPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pages/Content/store.html");
-            WebViewPages.CoreWebView2.Navigate(new Uri(htmlPath).AbsoluteUri);
+            WebViewPages.CoreWebView2?.ExecuteScriptAsync($"jumpTo('store')");
         }
 
         private void RadioSetting_Checked(object sender, RoutedEventArgs e)
         {
-            string htmlPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pages/Content/setting.html");
-            WebViewPages.CoreWebView2.Navigate(new Uri(htmlPath).AbsoluteUri);
+            WebViewPages.CoreWebView2?.ExecuteScriptAsync($"jumpTo('setting')");
         }
 
-        // 假设你的 XAML 中有一个 WebView2 控件
-        // <WebView2 x:Name="webView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-
-        private async void InitWebView()
+        private async void InitWebView(object sender, RoutedEventArgs e)
         {
-            WebViewPages.DefaultBackgroundColor = System.Drawing.Color.Transparent;
-            await WebViewPages.EnsureCoreWebView2Async();
+            //WebViewPages.DefaultBackgroundColor = System.Drawing.Color.Transparent;
+            var env = await CoreWebView2Environment.CreateAsync(null, null, new CoreWebView2EnvironmentOptions("--allow-file-access-from-files"));
+            await WebViewPages.EnsureCoreWebView2Async(env);
+            // 禁用状态栏（状态提示框）
+            WebViewPages.CoreWebView2.Settings.IsStatusBarEnabled = false;
+            WebViewPages.CoreWebView2.Navigate(new Uri(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pages/Content/index.html")).AbsoluteUri);
             WebViewPages.CoreWebView2.WebMessageReceived += GetMessage;
         }
 
         private void GetMessage(object sender, CoreWebView2WebMessageReceivedEventArgs e)
         {
             string msg = e.TryGetWebMessageAsString();
-            if (msg == "1")
+            Console.WriteLine($"收到前端消息：{msg}");
+            if (msg == "home")
             {
                 Dispatcher.Invoke(() => rdHome.IsChecked = true);
+            }else if (msg == "game")
+            {
+                Dispatcher.Invoke(() => rdGame.IsChecked = true);
+            }
+            else if (msg == "essay")
+            {
+                Dispatcher.Invoke(() => rdEssay.IsChecked = true);
+            }
+            else if (msg == "competition")
+            {
+                Dispatcher.Invoke(() => rdCompetition.IsChecked = true);
+            }
+            else if (msg == "store")
+            {
+                Dispatcher.Invoke(() => rdStore.IsChecked = true);
+            }
+            else if (msg == "admin")
+            {
+                Dispatcher.Invoke(() => rdAdmin.IsChecked = true);
+            }
+            else if (msg == "setting")
+            {
+                Dispatcher.Invoke(() => rdSetting.IsChecked = true);
             }
         }
 

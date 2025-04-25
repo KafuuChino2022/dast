@@ -4,16 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
-
         xmlns:local="clr-namespace:dast"
         mc:Ignorable="d" Name="home"
         Background="Transparent"
         AllowsTransparency="True"
         WindowStyle="None"
         Title="垃圾探索家"
+        Loaded="InitWebView"
         ResizeMode="NoResize"
-        Height="490" MinHeight="490"
-        Width="840" MinWidth="840">
+        Height="490" MinHeight="490" MaxHeight="490"
+        Width="840" MinWidth="840" MaxWidth="840">
     <Border CornerRadius="8" Background="{DynamicResource PrimaryBackgroundColor}">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -52,9 +52,9 @@
                                         <DoubleAnimation Storyboard.TargetName="gridMenu"
                                      Storyboard.TargetProperty="Width"
                                      To="200" Duration="0:0:0.2" Timeline.DesiredFrameRate="30"/>
-                                        <!-- <DoubleAnimation Storyboard.TargetName="WebViewPages"
+                                        <DoubleAnimation Storyboard.TargetName="WebViewPages"
                                      Storyboard.TargetProperty="Width"
-                                     To="620" Duration="0:0:0.2"/> -->
+                                     To="620" Duration="0:0:0.2" Timeline.DesiredFrameRate="30"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
@@ -64,9 +64,9 @@
                                         <DoubleAnimation Storyboard.TargetName="gridMenu"
                                      Storyboard.TargetProperty="Width"
                                      To="60" Duration="0:0:0.2" Timeline.DesiredFrameRate="30"/>
-                                        <!-- <DoubleAnimation Storyboard.TargetName="WebViewPages"
+                                        <DoubleAnimation Storyboard.TargetName="WebViewPages"
                                     Storyboard.TargetProperty="Width"
-                                    To="760" Duration="0:0:0.2"/> -->
+                                    To="760" Duration="0:0:0.2" Timeline.DesiredFrameRate="30"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
@@ -74,7 +74,7 @@
                     </ToggleButton>
 
                     <StackPanel Grid.Row="3" Cursor="Hand">
-                        <RadioButton x:Name="rdHome" Content="垃圾识别" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource index}" Click="RadioHome_Checked"/>
+                        <RadioButton x:Name="rdHome" IsChecked="True" Content="垃圾识别" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource index}" Click="RadioHome_Checked"/>
                         <RadioButton x:Name="rdGame" Content="游戏" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource game}" Margin="0,0,0,5" Click="RadioGame_Checked"/>
                         <RadioButton x:Name="rdEssay" Content="科普文章分享" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource essay}" Margin="0,0,0,5" Click="RadioEssay_Checked"/>
                         <RadioButton x:Name="rdCompetition" Content="垃圾分类准则" FontWeight="Bold" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource competition}" Margin="0,0,0,5" Click="RadioCompetition_Checked"/>
@@ -116,7 +116,7 @@
                 
                 <!-- Start: WebView2 Pages -->
                 <Border Grid.Row="1" Margin="10">
-                    <wv2:WebView2 x:Name="WebViewPages" Source="about:blank"/>
+                    <wv2:WebView2 x:Name="WebViewPages" Width="760" Height="430"/>
                 </Border>
             </Grid>
             <!-- Start: GridColumn Rigth -->

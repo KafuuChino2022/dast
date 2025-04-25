@@ -6,7 +6,7 @@
     <title>分析结果 - 垃圾探索家</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-    
+
         .result-container {
             background-color: rgba(255, 255, 255, 0.9);
             padding: 30px;
@@ -15,57 +15,66 @@
             margin: 0 auto;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
+
         .result-image {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
             margin-bottom: 20px;
         }
+
         .result-details {
             text-align: left;
             margin-top: 20px;
         }
+
         .result-category {
             font-size: 1.5rem;
             color: #4CAF50;
             font-weight: bold;
             margin-bottom: 10px;
         }
+
         .result-description {
             font-size: 1.1rem;
             line-height: 1.6;
             color: #555;
         }
+
         .action-buttons {
             margin-top: 30px;
             display: flex;
             justify-content: center;
             gap: 15px;
         }
-        .action-buttons a {
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
+
+            .action-buttons a {
+                padding: 10px 20px;
+                border-radius: 5px;
+                text-decoration: none;
+                font-weight: bold;
+                transition: all 0.3s;
+            }
+
         .back-button-main {
             background-color: #f0f0f0;
             color: #333;
             -webkit-user-drag: none;
         }
+
         .learn-more {
             background-color: #4CAF50;
             color: white;
             -webkit-user-drag: none;
         }
+
         .action-buttons a:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        
     </style>
-    
+    <script src="../Scripts/nav.js"></script>
+    <script src="../Scripts/jump.js"></script>
 </head>
 <body>
     <div class="main-content">
@@ -73,7 +82,7 @@
         <div class="main-center">
             <h2 class="subtitle">分析结果</h2>
             <div class="result-container">
-                <img src="../Images/2.jpg" alt="分析图片" class="result-image" id="result-image">
+                <img src="../Images/upload.jpg" alt="分析图片" class="result-image" id="result-image">
                 <div class="result-details">
                     <div class="result-category">可回收垃圾</div>
                     <div class="result-description">
@@ -81,14 +90,7 @@
                     </div>
                 </div>
                 <div class="action-buttons">
-                    <a href="index.html" class="back-button-main" onclick="postMsg()">返回首页</a>
-                    <script>
-                        window.onload = function () {
-                        }
-                        function postMsg() {
-                            window.chrome.webview.postMessage("1");
-                        }
-                    </script>
+                    <a href="index.html" class="back-button-main" onclick="postMsg('home')">返回首页</a>
                     <a href="norm.html" class="learn-more">了解更多分类</a>
                 </div>
             </div>
