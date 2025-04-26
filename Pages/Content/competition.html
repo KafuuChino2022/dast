@@ -5,27 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>知识竞赛 - 垃圾探索家</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="competition.css">
+    <link rel="stylesheet" href="dialog.css">
     <style>
-        .developing-notice {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 15px;
-            max-width: 600px;
+        .quiz-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            width: 100%;
             margin: 0 auto;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .developing-title {
-            font-size: 2rem;
-            color: #4CAF50;
-            margin-bottom: 20px;
-        }
-
-        .developing-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #FFC107;
+            box-sizing: border-box;
         }
     </style>
     <script src="../Scripts/nav.js"></script>
@@ -33,18 +25,35 @@
 </head>
 <body>
     <div class="container">
+        
         <div class="main-content">
-            <!-- 中间内容 -->
-            <div class="main-center">
-                <div class="developing-notice">
-                    <div class="developing-icon">🚧</div>
-                    <h2 class="developing-title">知识竞赛</h2>
-                    <p>该功能正在紧张开发中，敬请期待！</p>
-                    <p>预计上线时间：2025年5月</p>
-                    <a href="index.html" class="action-button" onclick="postMsg('home')">返回首页</a>
+            <div class="quiz-container">
+                <!-- 开始界面 -->
+                <div class="start-screen" id="start-screen">
+                    <h2 class="quiz-title">垃圾分类知识竞赛</h2>
+                    <p>完成题目可获得对应积分，积分将用于兑换礼品</p>
+                    <p>一共10题，每完成一题可获得1积分</p>
+                    <button class="start-btn" id="start-btn">开始答题</button>
+                </div>
+                
+                <!-- 答题界面（初始隐藏） -->
+                <div class="quiz-wrapper" id="quiz-wrapper" style="display:none;">
+                    <h2 class="quiz-title">垃圾分类知识竞赛</h2>
+                    <div class="progress-bar">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                    <div class="score-display" id="score">得分: 0/0</div>
+                    <div class="question" id="question"></div>
+                    <div class="options" id="options"></div>
+                    <div class="feedback" id="feedback"></div>
+                    <button class="next-btn" id="next-btn">下一题</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="../Scripts/competition.js"></script>
+    <script src="../Scripts/dialog.js"></script>
+    <script src="../Scripts/reLog.js"></script>
 </body>
 </html>

@@ -1,0 +1,169 @@
+/* 新增字体导入 */
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
+
+/* 通用设置 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Microsoft YaHei', sans-serif;
+    background: url('../Images/background.jpg') center center;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* 页面容器 */
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 页面标题 */
+.title {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 4.5rem;
+    color: #fff;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    user-select: none;
+}
+
+/* 页眉 */
+header {
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+
+/* 主体内容区域 */
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+/* 居中内容块 */
+.main-center {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 副标题样式 */
+.subtitle {
+    font-size: 2.5rem;
+    color: #fff;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 0px;
+    margin-bottom: 40px;
+    user-select: none;
+}
+
+/* 图片上传区域 */
+.upload-area {
+    margin-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* 上传图片显示样式 */
+#upload-image {
+    max-width: 150px;
+    max-height: 150px;
+    margin: 0 auto;
+    display: block;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+    #upload-image:hover {
+        transform: scale(1.05);
+    }
+
+/* 通用按钮样式 */
+.action-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #4CAF50;
+    text-decoration: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+    .action-button:hover {
+        background-color: #45a049;
+        transform: translateY(-2px);
+    }
+
+/* 修改header部分 */
+header {
+    text-align: center; /* 居中 */
+    padding: 20px 0; /* 上下内边距 */
+    position: relative; /* 相对定位 */
+    z-index: 10; /* 层级 */
+    width: 100%; /* 全宽 */
+    left: 0; /* 重置定位 */
+}
+
+/* 修改.main-content */
+.main-content {
+    display: flex; /* flex布局 */
+    flex: 1; /* 填充剩余空间 */
+    position: relative; /* 相对定位 */
+}
+
+/* 修改.main-center */
+.main-center {
+    flex: 1; /* 填充剩余空间 */
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    align-items: center; /* 水平居中 */
+    justify-content: center; /* 垂直居中 */
+    padding: 20px; /* 内边距 */
+    margin-left: 0; /* 移除左边距 */
+    width: calc(100% - 220px); /* 计算宽度减去菜单宽度 */
+    margin-right: 220px; /* 右边距平衡 */
+}
+
+/* 修改.main-horizontal */
+.main-horizontal {
+    flex: 1; /* 填充剩余空间 */
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    align-items: center; /* 水平居中 */
+    padding: 20px; /* 内边距 */
+    margin-left: 0; /* 移除左边距 */
+    width: calc(100% - 220px); /* 计算宽度减去菜单宽度 */
+    margin-right: 220px; /* 右边距平衡 */
+}
+
+/* 修改.main-vertical */
+.main-vertical {
+    flex: 1; /* 填充剩余空间 */
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    justify-content: center; /* 垂直居中 */
+    padding: 20px; /* 内边距 */
+    margin-left: 0; /* 移除左边距 */
+    width: calc(100% - 220px); /* 计算宽度减去菜单宽度 */
+    margin-right: 220px; /* 右边距平衡 */
+}
+/*补充*/

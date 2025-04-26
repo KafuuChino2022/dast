@@ -3,53 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>知识竞赛 - 垃圾探索家</title>
+    <title>垃圾探索家</title>
+    <link rel="stylesheet" href="game.css">
+    <link rel="stylesheet" href="dialog.css">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .developing-notice {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 15px;
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .developing-title {
-            font-size: 2rem;
-            color: #4CAF50;
-            margin-bottom: 20px;
-        }
-
-        .developing-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #FFC107;
-        }
-    </style>
     <script src="../Scripts/nav.js"></script>
     <script src="../Scripts/jump.js"></script>
 </head>
 <body>
     <div class="container">
-        <!-- <header>
-            <h1 class="title">垃圾探索家</h1>
-        </header> -->
-        
-        <div class="main-content">
-            
-            <!-- 中间内容 -->
-            <div class="main-center">
-                <div class="developing-notice">
-                    <div class="developing-icon">🚧</div>
-                    <h2 class="developing-title">游戏</h2>
-                    <p>该功能正在紧张开发中，敬请期待！</p>
-                    <p>预计上线时间：2025年5月</p>
-                    <a href="index.html" class="action-button" onclick="postMsg('home')">返回首页</a>
+
+            <!-- 游戏区内容 -->
+            <div class="game-container">
+                <!-- 游戏1 -->
+                <div class="game-card">
+                    <img src="../Images/贪吃蛇.jpg" alt="贪吃蛇游戏" class="game-image">
+                    <h3 class="game-title"><span>🐍</span>贪吃蛇</h3>
+                    <p class="game-desc">经典怀旧游戏，挑战你的反应速度</p>
+                    <button class="play-button" onclick="startGame()">开始游戏</button>
+                </div>
+
+                <!-- 游戏2 -->
+                <div class="game-card">
+                    <img src="../Images/连连看.jpg" alt="连连看游戏" class="game-image">
+                    <h3 class="game-title"><span>🃏</span>连连看</h3>
+                    <p class="game-desc">锻炼眼力的配对消除游戏</p>
+                    <button class="play-button" onclick="startGame()">开始游戏</button>
+                </div>
+
+                <!-- 游戏3 -->
+                <div class="game-card">
+                    <img src="../Images/消消乐.jpg" alt="消消乐游戏" class="game-image">
+                    <h3 class="game-title"><span>✨</span>消消乐</h3>
+                    <p class="game-desc">轻松愉快的三消游戏体验</p>
+                    <button class="play-button" onclick="startGame()">开始游戏</button>
+                </div>
+
+                <!-- 游戏4 -->
+                <div class="game-card">
+                    <img src="../Images/moreGames.jpg" alt="更多游戏" class="game-image">
+                    <h3 class="game-title"><span>🚀</span>更多功能</h3>
+                    <p class="game-desc">更多精彩内容正在开发中</p>
+                    <button class="play-button more-game-btn disabled">敬请期待</button>
                 </div>
             </div>
+
+            <!-- 敬请期待弹窗 -->
+            <div id="comingSoonModal" class="modal">
+                <div class="modal-content">
+                    <h3>敬请期待</h3>
+                    <p>我们正在努力开发更多精彩游戏功能，即将上线！</p>
+                    <button class="modal-close">确定</button>
+                </div>
+            </div>
+
+            <script src="../Scripts/game.js"></script>
+            <script src="../Scripts/dialog.js"></script>
+            <script src="../Scripts/reLog.js"></script>
         </div>
-    </div>
 </body>
 </html>

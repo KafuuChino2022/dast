@@ -1,114 +1,209 @@
-/* 新增字体导入 */
+/* 导入Google Fonts的中文字体"Ma Shan Zheng" */
 @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
 
-/* 通用设置 */
+/* 全局body样式 */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Microsoft YaHei', sans-serif;
-    background: url('../Images/background.jpg') center center;
+    background-image: url('../Images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: #333;
     min-height: 100vh;
-}
-
-/* 页面容器 */
-.container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
-/* 页面标题 */
-.title {
-    font-family: 'Ma Shan Zheng', cursive;
-    font-size: 4.5rem;
-    color: #fff;
-    text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin: 0;
-    user-select: none;
-}
-
-/* 页眉 */
+/* header标题区域 */
 header {
     text-align: center;
     padding: 20px 0;
-    position: relative;
-    z-index: 10;
     width: 100%;
+    z-index: 10;
+    background: transparent;
 }
+
+/* 大标题 */
+.title {
+    font-size: 4.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Ma Shan Zheng', cursive;
+    margin: 0;
+}
+
+/* 副标题 */
+.subtitle {
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* 页面主布局 */
+.container {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+}
+
+/* 左侧菜单 */
+.left-menu {
+    width: 240px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 30px 15px;
+    border-radius: 0 0 20px 0;
+    height: auto;
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+}
+
+    /* 左侧菜单列表 */
+    .left-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .left-menu li {
+        padding: 15px;
+        margin: 10px 0;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        border-left: 4px solid #4CAF50;
+    }
+
+    .left-menu a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        display: block;
+        transition: all 0.3s;
+        font-size: 1.1rem;
+    }
+
+        .left-menu a:hover {
+            color: #4CAF50;
+            transform: translateX(5px);
+        }
+
+    .left-menu li:hover {
+        background: rgba(76, 175, 80, 0.2);
+        color: #fff;
+    }
+
+    .left-menu .icon {
+        margin-right: 12px;
+        font-size: 1.2em;
+        vertical-align: middle;
+    }
 
 /* 主体内容区域 */
 .main-content {
     flex: 1;
     display: flex;
-    justify-content: center;
-    position: relative;
+    justify-content: center; /* 内容水平居中 */
+    align-items: flex-start; /* 内容顶部对齐，避免被压 */
+    padding: 20px;
+    min-width: 0;
 }
 
-/* 居中内容块 */
-.main-center {
-    flex: 1;
-    max-width: 1200px;
+/* 中间内容具体容器 */
+.main-center,
+.main-horizontal,
+.main-vertical {
     width: 100%;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* .main-vertical特例 */
+.main-vertical {
     justify-content: center;
 }
 
-/* 副标题样式 */
-.subtitle {
-    font-size: 2.5rem;
-    color: #fff;
-    text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-top:0px;
-    margin-bottom: 40px;
-    user-select: none;
-}
-
-/* 图片上传区域 */
+/* 上传区域 */
 .upload-area {
     margin-bottom: 20px;
-    text-align: center;
     cursor: pointer;
+    text-align: center;
 }
 
-/* 上传图片显示样式 */
 #upload-image {
     max-width: 150px;
     max-height: 150px;
-    margin: 0 auto;
-    display: block;
     border: 3px solid #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s;
+    display: block;
+    margin: 0 auto;
 }
 
     #upload-image:hover {
         transform: scale(1.05);
     }
 
-/* 通用按钮样式 */
+/* 按钮样式 */
 .action-button {
     display: inline-block;
-    margin-top: 20px;
     padding: 12px 30px;
-    font-size: 1.2rem;
-    color: white;
     background-color: #4CAF50;
+    color: white;
     text-decoration: none;
+    font-size: 1.2rem;
     border-radius: 25px;
+    transition: background-color 0.3s, transform 0.2s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    -webkit-user-drag: none;
-    user-select: none;
+    margin-top: 20px;
 }
 
     .action-button:hover {
         background-color: #45a049;
         transform: translateY(-2px);
     }
+
+/* 整个滚动条（默认隐藏，鼠标悬停时显示） */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: transparent; /* 默认透明，不占视觉 */
+}
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+    background: #eeeeee;
+    border-radius: 4px;
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    background: transparent; /* 默认滑块透明 */
+    border-radius: 4px;
+    border: 2px solid transparent;
+    transition: background 0.3s, border 0.3s;
+}
+
+/* 当鼠标悬停在可滚动区域时，滑块出现 */
+:hover::-webkit-scrollbar-thumb {
+    background: #00adb5;
+    border: 2px solid #eeeeee;
+}
+
+/* 滑块 hover 状态（鼠标放在滑块上） */
+::-webkit-scrollbar-thumb:hover {
+    background: #019aa2;
+}

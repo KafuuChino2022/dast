@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Microsoft YaHei', sans-serif;
-            background-image: url('内容/登录.jpg');
+            background-image: url('logBackground.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -24,7 +24,7 @@
             min-height: 100vh;
         }
         
-        /* 左侧菜单 */
+        /* 左侧菜单
         .left-menu {
             width: 220px;
             background-color: rgba(255, 255, 255, 0.85);
@@ -55,7 +55,7 @@
             color: #4CAF50;
             transform: translateX(5px);
         }
-        
+         */
         /* 中间登录区域 */
         .login-center {
             flex: 1;
@@ -144,11 +144,11 @@
 <body>
     <div class="container">
         <!-- 左侧菜单（仅设置） -->
-        <nav class="left-menu">
+        <!-- <nav class="left-menu">
             <ul>
-                <li><a href="/Inner/Setting.html">设置</a></li>
+                <li><a href="/内容/设置.html">设置</a></li>
             </ul>
-        </nav>
+        </nav> -->
         
         <!-- 中间登录区域 -->
         <div class="login-center">
@@ -169,7 +169,7 @@
                     <button type="submit" class="login-button">登录</button>
                     
                     <div class="register-link">
-                        没有账号？<a href="Content/Rigist.html">立即注册</a>
+                        没有账号？<a href="注册.html">立即注册</a>
                     </div>
                     
                     <div id="errorMessage" class="error-message"></div>
@@ -188,7 +188,7 @@
             
             if(username === 'admin' && password === '123456') {
                 // 登录成功，跳转到首页
-                window.location.href = 'Content/index.html';
+                window.location.href = '/Content/index.html';
             } else {
                 // 显示错误信息
                 errorElement.textContent = '账号或密码错误！';

@@ -1,0 +1,249 @@
+/* 导入Google Fonts的中文字体"Ma Shan Zheng" */
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
+
+/* 全局body样式 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Microsoft YaHei', sans-serif; /* 默认使用微软雅黑字体 */
+    background-image: url('../Images/background.jpg'); /* 背景图片 */
+    background-size: cover; /* 背景图片覆盖整个区域 */
+    background-position: center; /* 背景图片居中 */
+    background-attachment: fixed; /* 背景图片固定不滚动 */
+    color: #333; /* 默认文字颜色 */
+    min-height: 100vh; /* 最小高度为视口高度 */
+    /* 注释掉的底部边框样式 */
+    /* border-bottom: 2px solid #4caf50;  /* 绿色实线，粗细2px * */
+}
+
+/* 主容器使用flex布局 */
+.container {
+    display: flex;
+    flex-direction: column; /* 垂直方向排列 */
+    min-height: 100vh; /* 最小高度为视口高度 */
+}
+
+/* 标题样式 */
+.title {
+    /* 居中属性 */
+    display: block;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    left: 0;
+
+    font-size: 4.5rem; /* 大字号标题 */
+    color: #fff; /* 白色文字 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 文字阴影效果 */
+    margin: 0; /* 移除默认外边距 */
+    font-family: 'Ma Shan Zheng', cursive; /* 使用特殊中文字体 */
+}
+
+/* 左侧菜单样式 */
+.left-menu {
+    width: 240px; /* 固定宽度 */
+    background: rgba(255, 255, 255, 0.25); /* 半透明白色背景 */
+    backdrop-filter: blur(10px); /* 背景模糊效果 */
+    -webkit-backdrop-filter: blur(10px); /* 兼容Safari的模糊效果 */
+    border-right: 1px solid rgba(255, 255, 255, 0.3); /* 右侧边框 */
+    padding: 30px 15px; /* 内边距 */
+    border-radius: 0 0 20px 0; /* 右下角圆角 */
+    margin-top: 0; /* 与标题无缝衔接 */
+    height: auto; /* 高度自适应内容 */
+    align-self: flex-start; /* 防止被拉伸 */
+    position: sticky; /* 粘性定位 */
+    top: 0; /* 粘在顶部 */
+    max-height: 100vh; /* 最大高度为视口高度 */
+    overflow-y: auto; /* 内容溢出时垂直滚动 */
+}
+
+/* 左侧菜单列表样式 */
+.left-menu ul {
+    list-style: none; /* 移除列表默认样式 */
+    padding: 0;
+    margin: 0;
+}
+
+/* 左侧菜单项样式 */
+.left-menu li {
+    padding: 15px; /* 内边距 */
+    margin: 10px 0; /* 上下外边距 */
+    background: white; /* 白色背景 */
+    border-radius: 12px; /* 圆角 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* 阴影效果 */
+    transition: all 0.3s ease; /* 过渡动画 */
+    border-left: 4px solid #4CAF50; /* 左侧绿色边框 */
+}
+
+/* 左侧菜单链接样式 */
+.left-menu a {
+    text-decoration: none; /* 移除下划线 */
+    color: #333; /* 文字颜色 */
+    font-weight: bold; /* 加粗 */
+    display: block; /* 块级显示 */
+    transition: all 0.3s; /* 过渡动画 */
+    font-size: 1.1rem; /* 字体大小 */
+}
+
+/* 左侧菜单链接悬停效果 */
+.left-menu a:hover {
+    color: #4CAF50; /* 悬停时变为绿色 */
+    transform: translateX(5px); /* 向右移动5px */
+}
+
+/* 补充：菜单项悬停效果 */
+.left-menu li:hover {
+    background: rgba(76, 175, 80, 0.2); /* 半透明绿色背景 */
+    color: #fff; /* 白色文字 */
+}
+
+/* 补充2：菜单图标样式 */
+.left-menu .icon {
+    margin-right: 12px; /* 图标右边距 */
+    font-size: 1.2em; /* 图标大小 */
+    vertical-align: middle; /* 垂直居中 */
+}
+
+
+/* 游戏区容器 */
+.game-container {
+    margin: auto auto auto auto;
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;         /* 允许自动换行 */
+    justify-content: center; /* 居中 */
+    gap: 25px;
+    max-width: 1300px;        /* 最大宽度限制（比如4个卡片） */
+}
+
+/* 游戏卡片样式 */
+.game-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 300px; /* 固定卡片宽度 */
+    flex-shrink: 0; /* 防止卡片被压缩变形 */
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+
+.game-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.game-title {
+    padding: 15px;
+    font-size: 1.5rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+.game-title span {
+    margin-right: 10px;
+}
+
+.game-desc {
+    padding: 0 20px;
+    color: #666;
+    flex-grow: 1;
+}
+
+.play-button {
+    display: block;
+    padding: 12px;
+    margin: 20px auto;
+    width: 80%;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.play-button:hover {
+    background: #45a049;
+    transform: scale(1.05);
+}
+
+.play-button.disabled {
+    background: #9E9E9E;
+    cursor: not-allowed;
+}
+
+.play-button.disabled:hover {
+    transform: none;
+}
+
+/* 弹窗样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal h3 {
+    color: #4CAF50;
+    margin-top: 0;
+}
+
+.modal p {
+    margin-bottom: 20px;
+}
+
+.modal-close {
+    padding: 8px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .left-menu {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    
+    .game-container {
+        margin-left: 0;
+        padding: 20px 15px;
+    }
+}

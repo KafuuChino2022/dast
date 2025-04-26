@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Microsoft YaHei', sans-serif;
-            background-image: url('登录.jpg');
+            background-image: url('log.html');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -17,45 +17,45 @@
             min-height: 100vh;
             display: flex;
         }
-
+        
         .container {
             display: flex;
             width: 100%;
             min-height: 100vh;
         }
-
+        
         /* 左侧菜单 */
         .left-menu {
             width: 220px;
             background-color: rgba(255, 255, 255, 0.85);
             padding: 20px 0;
         }
-
-            .left-menu ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-
-            .left-menu li {
-                padding: 12px 25px;
-                border-bottom: 1px solid #eee;
-            }
-
-            .left-menu a {
-                text-decoration: none;
-                color: #333;
-                font-weight: bold;
-                display: block;
-                transition: all 0.3s;
-                font-size: 1.1rem;
-            }
-
-                .left-menu a:hover {
-                    color: #4CAF50;
-                    transform: translateX(5px);
-                }
-
+        
+        .left-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .left-menu li {
+            padding: 12px 25px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .left-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: block;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .left-menu a:hover {
+            color: #4CAF50;
+            transform: translateX(5px);
+        }
+        
         /* 中间注册区域 */
         .register-center {
             flex: 1;
@@ -64,7 +64,7 @@
             align-items: center;
             justify-content: center;
         }
-
+        
         .title {
             font-size: 4.5rem;
             color: #fff;
@@ -72,7 +72,7 @@
             margin-bottom: 50px;
             font-family: 'Ma Shan Zheng', cursive;
         }
-
+        
         .register-box {
             background-color: rgba(255, 255, 255, 0.9);
             padding: 40px;
@@ -80,27 +80,27 @@
             width: 400px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-
+        
         .form-group {
             margin-bottom: 20px;
         }
-
-            .form-group label {
-                display: block;
-                margin-bottom: 8px;
-                font-weight: bold;
-                color: #555;
-            }
-
-            .form-group input {
-                width: 100%;
-                padding: 12px;
-                border: 1px solid #ddd;
-                border-radius: 5px;
-                font-size: 1rem;
-                box-sizing: border-box;
-            }
-
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        
         .register-button {
             width: 100%;
             padding: 12px;
@@ -113,11 +113,11 @@
             transition: background-color 0.3s;
             margin-top: 10px;
         }
-
-            .register-button:hover {
-                background-color: #45a049;
-            }
-
+        
+        .register-button:hover {
+            background-color: #45a049;
+        }
+        
         .success-message {
             margin-top: 20px;
             padding: 15px;
@@ -127,12 +127,12 @@
             color: #2e7d32;
             display: none;
         }
-
+        
         .generated-account {
             font-weight: bold;
             color: #2196F3;
         }
-
+        
         .error-message {
             color: #f44336;
             text-align: center;
@@ -140,11 +140,16 @@
             font-size: 0.9rem;
         }
     </style>
-    <script src="../Scripts/nav.js"></script>
-    <script src="../Scripts/jump.js"></script>
 </head>
 <body>
     <div class="container">
+        <!-- 左侧菜单（仅设置） -->
+        <!-- <nav class="left-menu">
+            <ul>
+                <li><a href="/内容/设置.html">设置</a></li>
+            </ul>
+        </nav> -->
+        
         <!-- 中间注册区域 -->
         <div class="register-center">
             <h1 class="title">垃圾探索家</h1>
@@ -211,7 +216,7 @@
             
             // 3秒后自动跳转到登录页
             setTimeout(() => {
-                window.location.href = 'log.html';
+                window.location.href = '登录界面.html';
             }, 3000);
         });
     </script>

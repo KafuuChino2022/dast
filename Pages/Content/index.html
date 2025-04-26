@@ -5,25 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>垃圾探索家</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dialog.css">
     <script src="../Scripts/nav.js"></script>
     <script src="../Scripts/jump.js"></script>
 </head>
-<body onload="localStorage.removeItem('uploadedImage');">
-    <div class="container">
-        <div class="main-content">
-            <!-- 修改后的中间内容区 -->
-            <div class="main-center">
-                <h2 class="subtitle">智能垃圾识别系统</h2>
-                <div class="upload-area">
-                    <label for="image-upload">
-                        <img src="../Images/upload.jpg" draggable="false" alt="上传图片" id="upload-image">
-                    </label>
-                    <input type="file" id="image-upload" accept="image/*" style="display: none;">
-                </div>
-                <a href="result.html" class="action-button">点击获取分析结果</a>
+<body>
+        <!--中间内容-->
+        <div class="main-center">
+            <h2 class="subtitle">智能垃圾识别系统</h2>
+            <div class="upload-area">
+                <label for="image-upload">
+                    <img src="../Images/upload.jpg" alt="上传图片" id="upload-image">
+                </label>
+                <input type="file" id="image-upload" accept="image/*" style="display: none;">
             </div>
+            <a href="result.html" class="action-button">点击获取分析结果</a>
         </div>
-    </div>
     
     <script>
         document.getElementById('image-upload').addEventListener('change', function(event) {
@@ -39,5 +36,7 @@
             }
         });
     </script>
+    <script src="../Scripts/dialog.js"></script>
+    <script src="../Scripts/reLog.js"></script>
 </body>
 </html>

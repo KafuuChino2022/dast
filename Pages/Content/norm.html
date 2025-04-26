@@ -3,61 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>知识竞赛 - 垃圾探索家</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .developing-notice {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 15px;
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .developing-title {
-            font-size: 2rem;
-            color: #4CAF50;
-            margin-bottom: 20px;
-        }
-
-        .developing-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #FFC107;
-        }
-    </style>
+    <link rel="stylesheet" href="norm.css">
+    <link rel="stylesheet" href="dialog.css">
     <script src="../Scripts/nav.js"></script>
+    <script src="../Scripts/jump.js"></script>
 </head>
 <body>
     <div class="container">
-        <div class="main-content">
-            <!-- 左侧菜单（与index.html完全一致） -->
-            <!-- <nav class="left-menu">
-                <ul>
-                    <li><a href="设置.html">设置</a></li>
-                    <li><a href="用户.html">用户</a></li>
-                    <li><a href="/登录界面.html">返回登录界面</a></li>
-                    <li><a href="游戏.html">游戏</a></li>
-                    <li><a href="3.html">知识竞赛</a></li>
-                    <li><a href="4.html">排行榜</a></li>
-                    <li><a href="5.html">积分兑换商城</a></li>
-                    <li><a href="6.html">垃圾分类准则</a></li>
-                    <li><a href="科普文章分享.html">科普文章分享</a></li>
-                </ul>
-            </nav> -->
+            
             <!-- 中间内容 -->
             <div class="main-center">
-                <div class="developing-notice">
-                    <div class="developing-icon">🚧</div>
-                    <h2 class="developing-title">垃圾分类准则</h2>
-                    <p>该功能正在紧张开发中，敬请期待！</p>
-                    <p>预计上线时间：2025年5月</p>
-                    <a href="index.html" class="action-button" onclick="postMsg('home')">返回首页</a>
-                </div>
+                <h2 class="subtitle">垃圾分类全指南</h2>
+                
+                <section class="category-section">
+                    <h3>四分类法</h3>
+                    <p>目前我国普遍采用将垃圾分为可回收物、有害垃圾、厨余垃圾和其他垃圾的四分类法。</p>
+                    
+                    <div class="category-grid">
+                        <!-- 可回收物 -->
+                        <div class="category-card recyclable">
+                            <h4>可回收物（蓝色垃圾桶（循环箭头符号）</h4>
+                            <p>适宜回收利用的生活废弃物：</p>
+                            <ul>
+                                <li><strong>纸类</strong>：报纸、宣传单页、纸质包装盒等。投放前应尽量叠放整齐，避免揉团</li>
+                                <li><strong>塑料</strong>：塑料瓶、塑料桶、塑料盒等。应将容器内产品用尽后，清理干净再投放</li>
+                                <li><strong>玻璃</strong>：玻璃瓶、玻璃杯、玻璃碎片等。小心轻放，避免破损</li>
+                                <li><strong>金属</strong>：易拉罐、金属瓶盖、金属餐具等。应将易拉罐压扁后投放</li>
+                                <li><strong>织物</strong>：旧衣物、旧毛巾、旧床上用品等。应保持干净、干燥、无异味</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- 有害垃圾 -->
+                        <div class="category-card hazardous">
+                            <h4>有害垃圾（红色垃圾桶（危险箭头符号）</h4>
+                            <p>对人体健康或自然环境造成危害的废弃物：</p>
+                            <ul>
+                                <li><strong>废电池</strong>：纽扣电池、充电电池等。电池内的重金属会污染土壤和水源</li>
+                                <li><strong>废灯管</strong>：荧光灯管、水银温度计等。含汞等有害物质</li>
+                                <li><strong>废药品</strong>：过期药品及其包装。成分可能对环境造成污染</li>
+                                <li><strong>废油漆</strong>：油漆桶、溶剂等。具有挥发性和毒性</li>
+                                <li><strong>水银产品</strong>：废水银温度计等。水银是剧毒物质</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- 厨余垃圾 -->
+                        <div class="category-card kitchen">
+                            <h4>厨余垃圾（绿色垃圾桶（果核、鱼骨或食物残渣图案）</h4>
+                            <p>易腐烂的有机废弃物：</p>
+                            <ul>
+                                <li><strong>食物残渣</strong>：蔬菜果皮、骨头、剩菜剩饭等。应袋装、密闭投放</li>
+                                <li><strong>食用油脂</strong>：废弃的食用油等。可回收用于生物柴油生产</li>
+                                <li><strong>过期食品</strong>：零食、糕点等。应去除包装后投放</li>
+                                <li><strong>茶渣咖啡渣</strong>：需沥干水分后投放</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- 其他垃圾 -->
+                        <div class="category-card other">
+                            <h4>其他垃圾（灰色垃圾桶（三角形箭头朝下）</h4>
+                            <p>除上述类别外的混杂废弃物：</p>
+                            <ul>
+                                <li><strong>受污染纸类</strong>：卫生纸、纸尿裤等。因受污染无法回收</li>
+                                <li><strong>不可降解塑料</strong>：保鲜膜、塑料袋等。难以降解的物质</li>
+                                <li><strong>陶瓷/贝壳</strong>：碗碟、硬贝壳等。不易分解的物质</li>
+                                <li><strong>尘土烟蒂</strong>：扫地灰、烟头等。可能含有害物质</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="policy-section">
+                    <h3>国家政策法规</h3>
+                    <div class="policy-item">
+                        <h4>《中华人民共和国固体废物污染环境防治法》</h4>
+                        <p>2020年修订版明确了生活垃圾分类坚持政府推动、全民参与、城乡统筹、因地制宜、简便易行的原则；规定产生生活垃圾的单位、家庭和个人应当依法履行生活垃圾源头减量和分类投放义务等。</p>
+                    </div>
+                    <div class="policy-item">
+                        <h4>《城市生活垃圾分类工作测评细则》</h4>
+                        <p>2020年发布，对城市生活垃圾分类工作进行测评，推动工作落实。</p>
+                    </div>
+                    <div class="policy-item">
+                        <h4>《关于进一步推进生活垃圾分类工作的若干意见》</h4>
+                        <p>力争用5年左右时间，基本建立配套完善的生活垃圾分类法律法规制度体系；地级及以上城市因地制宜基本建立生活垃圾分类投放、分类收集、分类运输、分类处理系统，居民普遍形成生活垃圾分类习惯；全国城市生活垃圾回收利用率达到35%以上。</p>
+                    </div>
+                </section>
+                
+                <section>
+                    <h3>国内垃圾分类实例</h3>
+                    
+                    <div class="city-example">
+                        <div class="city-name">上海模式</div>
+                        <p>作为垃圾分类的先行城市之一，上海在2019年开始全面推行垃圾分类。通过广泛的宣传教育、社区动员以及严格的执法监督，居民的垃圾分类意识和参与度不断提高。社区设置了各类垃圾分类投放点，定时定点开放，安排志愿者进行现场指导，确保居民准确分类投放。同时，建立了完善的垃圾分类收运体系，对不同类型的垃圾进行分类收集、运输和处理。目前，上海的垃圾分类工作已取得显著成效，垃圾分类覆盖率达到95%以上，垃圾回收利用率也不断提升。</p>
+                    </div>
+                    
+                    <div class="city-example">
+                        <div class="city-name">北京试点</div>
+                        <p>北京市的垃圾分类工作也在逐步推进。许多小区开展了垃圾分类示范创建工作，设置了不同颜色的垃圾桶，并在桶上标明对应的垃圾种类，方便居民投放。同时，通过社区宣传栏、宣传手册、线上宣传等多种形式，向居民普及垃圾分类知识。此外，还建立了垃圾分类激励机制，对积极参与垃圾分类的居民给予一定的奖励，提高了居民的参与积极性。目前，北京市的部分小区垃圾分类工作已初见成效，垃圾分类的氛围日益浓厚。</p>
+                    </div>
+                </section>
+                
+                <section>
+                    <h3>国外垃圾分类实例</h3>
+                    
+                    <div class="city-example">
+                        <div class="city-name">德国柏林</div>
+                        <p>在柏林的街头巷尾，随处可见不同颜色的垃圾桶。居民们会将废纸、玻璃、塑料、金属等可回收物分别投放到相应的垃圾桶中。对于有机垃圾，如厨余垃圾等，会投放到棕色的垃圾桶中，这些有机垃圾将被运往堆肥厂进行堆肥处理，转化为有机肥料。而对于不可回收的其他垃圾，则投放到黑色的垃圾桶中。在柏林的一些社区，
+                     </div>
+                    <div class="city-example">
+                        <div class="city-name">日本东京</div>
+                        <p>东京都涩谷区对垃圾分类有着严格的规定。居民需要将垃圾分为可燃垃圾、不可燃垃圾、资源垃圾和大件垃圾四大类，并按照指定的时间和地点进行投放。资源垃圾又进一步分为矿泉水瓶、玻璃瓶、纸、铝罐、铁罐等不同种类，每种垃圾都有专门的收集日。例如，纸类垃圾需用透明塑料袋装好，并在指定的收集日早上8点前放置在指定地点。如果居民未按规定分类或未在指定时间投放垃圾，垃圾将会被退回。东京还通过学校教育、社区宣传等方式，从小培养居民的垃圾分类意识。</p>
+                    </div>
+                </section>
             </div>
         </div>
-    </div>
 </body>
 </html>

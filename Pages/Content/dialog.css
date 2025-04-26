@@ -1,0 +1,62 @@
+/* 确认对话框样式 */
+.confirm-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .confirm-dialog-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+  }
+  
+  .confirm-message {
+    margin-bottom: 25px;
+    font-size: 1.1em;
+    color: #333;
+  }
+  
+  .confirm-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .confirm-btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+    min-width: 80px;
+  }
+  
+  .confirm-btn.ok-btn {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .confirm-btn.ok-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .confirm-btn.cancel-btn {
+    background-color: #e0e0e0;
+    color: #333;
+  }
+  
+  .confirm-btn.cancel-btn:hover {
+    background-color: #bdbdbd;
+  }
